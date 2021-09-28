@@ -8,17 +8,20 @@ const baseURL = "/api/"
 function Home() {
   const [state, setState] = useState(null);
   const [error, setError] = useState("");
-  const headers = {
-    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjN2IxYjU5NWU4ZDc0NzU0YmVmM2ZlZjJlODAzN2U3OSIsImlhdCI6MTYzMTg4MDQwNiwiZXhwIjoxOTQ3MjQwNDA2fQ.hV0uT5W9LAr7lqUTpKkHxkW1QzhVqQyCFQrt2_wATys',
-    'content-type': 'application/json'
+  var config = {
+    // method: 'get',
+    // url: '/api/',
+    headers: {
+      'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjN2IxYjU5NWU4ZDc0NzU0YmVmM2ZlZjJlODAzN2U3OSIsImlhdCI6MTYzMTg4MDQwNiwiZXhwIjoxOTQ3MjQwNDA2fQ.hV0uT5W9LAr7lqUTpKkHxkW1QzhVqQyCFQrt2_wATys',
+      'content-type': 'application/json'
+    }
   };
 
-
   useEffect(() => {
-    axios.get(`${baseURL}`, headers)
+    axios.get('/api/', config)
     .then((response) => {
       setState(response.data);
-      console.log(state);
+      console.log(response.data);
     }).catch(({ response }) => {
       console.log(response.data);
       // console.log(response.status);
