@@ -10,7 +10,6 @@ export const AuthProvider = ({ children }) => {
     onAuthStateChanged(getAuth(),(user) => {
       setCurrentUser(user)
       setPending(false)
-      console.log(user)
     });
   }, []);
 

@@ -11,7 +11,7 @@ function App() {
     <AuthProvider>
       <Router>
         <Switch>
-          <PrivateRoute exact paht="/" component={Home} />
+          <PrivateRoute exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
         </Switch>
       </Router>
