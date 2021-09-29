@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Button from '@material-ui/core/Button';
-import { logout } from "../../firebase";
+import { logout } from "../../utils/firebase";
 import axios from 'axios';
 
 const baseURL = "/api/"
