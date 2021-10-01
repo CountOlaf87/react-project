@@ -6,3 +6,4 @@
 - Axios/socket.io for API/Websockets control
 - http-proxy-middleware for CORS control
 - recharts for data visualisation
+- openweathermap for weather api

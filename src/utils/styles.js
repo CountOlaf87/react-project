@@ -94,4 +94,11 @@ export const useStyles = makeStyles((theme) => ({
     fontSize: '1.2em',
     fontWeight: '500'
   },
+  paperWeather: {
+    backgroundColor: '#439FD9',
+    transition: '0.4 ease-out',
+  },
+  paperWeatherWarm: {
+    backgroundColor: '#D9601A',
+  }
 }));
