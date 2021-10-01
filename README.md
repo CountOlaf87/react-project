@@ -3,5 +3,6 @@
 ## Tech Stack
 - React
 - Firebase for auth and DB
-- Axios for API control
+- Axios/socket.io for API/Websockets control
 - http-proxy-middleware for CORS control
+- recharts for data visualisation

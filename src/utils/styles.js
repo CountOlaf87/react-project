@@ -16,8 +16,20 @@ export const useStyles = makeStyles((theme) => ({
       ...theme.mixins.toolbar,
     },
   },
+  container: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(12, 1fr)',
+    gridGap: theme.spacing(3),
+  },
+  divider: {
+    margin: theme.spacing(2, 0),
+  },
   drawer: {
     width: "100"
+  },
+  grid: {
+    width: '100%',
+    margin: '0px'
   },
   navigationLogo: {
     width: "50%",
@@ -70,5 +82,16 @@ export const useStyles = makeStyles((theme) => ({
   },
   menuItemActive: {
     backgroundColor: "#EBEBEC",
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    whiteSpace: 'nowrap',
+    marginBottom: theme.spacing(1),
+  },
+  paperTypography: {
+    fontSize: '1.2em',
+    fontWeight: '500'
   },
 }));

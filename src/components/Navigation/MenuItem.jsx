@@ -3,6 +3,7 @@ import { Icon, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { logout } from "../../utils/firebase";
 
 // internal
 import { useStyles } from "../../utils/styles";

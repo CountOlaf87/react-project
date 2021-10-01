@@ -4,6 +4,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 import Dashboard from "../components/views/Dashboard";
 import Lights from "../components/views/Lights";
+import Home from "../components/views/Home";
 
 
 const routes = [
@@ -20,6 +21,13 @@ const routes = [
     icon: DashboardOutlinedIcon,
     activeIcon: DashboardIcon,
     component: Lights,
+  },
+  {
+    label: "Home",
+    path: "/home",
+    icon: DashboardOutlinedIcon,
+    activeIcon: DashboardIcon,
+    component: Home,
   },
   {
     label: "Sign Out",
