@@ -1,5 +1,5 @@
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import DashboardOutlinedIcon from '@material-ui/icons/DashboardOutlined';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 import Dashboard from "../components/views/Dashboard";

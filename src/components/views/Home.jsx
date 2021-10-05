@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import { logout } from "../../utils/firebase";
 import axios from 'axios';
+import socket from '../../utils/websockets';
+
 
 const baseURL = "/api/states/light.hue_color_candle_3"
 const dataOn  = JSON.stringify({
@@ -19,17 +21,21 @@ function Home() {
   const [state, setState] = useState("");
   const [error, setError] = useState("");
   useEffect(() => {
-    axios.get(baseURL, {
-      headers: headers
+    socket.on("connection", (client) => {
+      console.log(client)
     })
-    .then((response) => {
-      setState(response.data);
-      // console.log(response.data);
-    }).catch(({ response }) => {
-      // console.log(response.data);
-      // console.log(response.status);
-      // console.log(response.headers);
-    });
+    // axios.get(baseURL, {
+    //   headers: headers
+    // })
+    // .then((response) => {
+    //   setState(response.data);
+    //   // console.log(response.data);
+    // }).catch(({ response }) => {
+    //   // console.log(response.data);
+    //   // console.log(response.status);
+    //   // console.log(response.headers);
+    // });
+
   }, []);
 
   function turnOn(){

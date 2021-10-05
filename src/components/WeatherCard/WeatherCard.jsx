@@ -19,9 +19,9 @@ function WeatherCard() {
     });
   };
   
-  useEffect(() => {
-    setInterval(() => getWeather(), 18000);
-  }, []);
+// useEffect(() => {
+//   setInterval(() => getWeather(), 18000);
+// }, []);
 
   const classes = useStyles();
   const dateBuilder = (d) => {
