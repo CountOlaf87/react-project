@@ -24,12 +24,15 @@ import {
   createLongLivedTokenAuth,
 } from "home-assistant-js-websocket";
 
-(async () => {
+const connection = (async () => {
   const auth = createLongLivedTokenAuth(
-    "ws://10.10.2.5:8123",
+    "http://10.10.2.5:8123",
     "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjN2IxYjU5NWU4ZDc0NzU0YmVmM2ZlZjJlODAzN2U3OSIsImlhdCI6MTYzMTg4MDQwNiwiZXhwIjoxOTQ3MjQwNDA2fQ.hV0uT5W9LAr7lqUTpKkHxkW1QzhVqQyCFQrt2_wATys"
   );
+  return await createConnection({ auth });
 
-  const connection = await createConnection({ auth });
-  subscribeEntities(connection, (entities) => console.log(entities));
+  // subscribeEntities(connection, (entities) => console.log(entities));
 })();
+
+// connection.then(console.log);
+export default connection;
