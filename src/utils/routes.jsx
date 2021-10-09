@@ -1,6 +1,4 @@
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import DashboardOutlinedIcon from '@material-ui/icons/DashboardOutlined';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+
 
 import Dashboard from "../components/views/Dashboard";
 import Lights from "../components/views/Lights";
@@ -11,29 +9,29 @@ const routes = [
   {
     label: "Dashboard",
     path: "/",
-    icon: DashboardOutlinedIcon,
-    activeIcon: DashboardIcon,
+    Icon: "DashboardOutlinedIcon",
+    ActiveIcon: "DashboardIcon",
     component: Dashboard,
   },
   {
     label: "Lights",
     path: "/lights",
-    icon: DashboardOutlinedIcon,
-    activeIcon: DashboardIcon,
+    Icon: "DashboardOutlinedIcon",
+    ActiveIcon: "DashboardIcon",
     component: Lights,
   },
   {
     label: "Home",
     path: "/home",
-    icon: DashboardOutlinedIcon,
-    activeIcon: DashboardIcon,
+    Icon: "DashboardOutlinedIcon",
+    ActiveIcon: "DashboardIcon",
     component: Home,
   },
   {
     label: "Sign Out",
     path: "/sign-out",
-    icon: ExitToAppIcon,
-    activeIcon: ExitToAppIcon,
+    Icon: "ExitToAppIcon",
+    ActiveIcon: "ExitToAppIcon",
   },
 
 ];

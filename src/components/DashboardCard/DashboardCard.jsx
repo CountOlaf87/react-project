@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Paper, Typography, Icon, Switch } from '@material-ui/core';
 
-import api from '../../utils/api';
+import { getRequest } from '../../utils/api';
 
 import { useStyles } from "../../utils/styles";
 
 import {
-  callService,
+  callService, subscribeEntities
 } from "home-assistant-js-websocket";
 
 import connection from '../../utils/websockets';
@@ -20,16 +20,30 @@ function DashboardCard(props) {
 
   const classes = useStyles();
 
+  function updateState(ent){
+    if(ent.state === 'on'){
+      setChecked(true);
+    }
+  }
+  
+  // function getEntities() {
+  //   api.get(`/states/${entity_id}`)
+  //     .then((response) => {
+  //       updateEntity(response.data);
+  //       updateState(response.data);
+  //       updateLoading(false);
+  //     });
+  // };
 
-  function getEntities() {
-    api.get(`/states/${entity_id}`)
-      .then((response) => {
-        updateEntity(response.data);
-        // console.log(response.data)
-        updateLoading(false);
-      });
-  };
-
+  async function fetchEntity(){
+    try{
+      const fetchedEntity = await getRequest(`states/${entity_id}`);
+      updateEntity(fetchedEntity.data);
+      updateLoading(false);
+    } catch (error){
+      console.log(error.message);
+    }
+  }
 
   function handleSwitchchange(entId) {
     connection.then(conn => {
@@ -37,11 +51,10 @@ function DashboardCard(props) {
         entity_id: entId,
       })
     })
-    setChecked(!checked);
   }
 
   useEffect(() => {
-    setInterval(() => getEntities(), 1000);
+    setInterval(() => fetchEntity(), 2500);
   }, [entity_id]);
 
   return loading ? (
@@ -55,7 +68,7 @@ function DashboardCard(props) {
           <Switch
             checked={checked}
             onChange={() => handleSwitchchange(entity_id)}
-            name={entity_id}
+            name={(entity_id)}
             inputProps={{ 'aria-label': 'secondary checkbox' }}
           />
     </Paper>

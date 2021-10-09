@@ -5,6 +5,10 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { logout } from "../../utils/firebase";
 
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import DashboardOutlinedIcon from '@material-ui/icons/DashboardOutlined';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+
 // internal
 import { useStyles } from "../../utils/styles";
 
@@ -13,6 +17,9 @@ const MenuItem = ({ label, icon, activeIcon, path, onClick }) => {
   const location = useLocation();
   const classes = useStyles();
 
+  const ActiveIcon = activeIcon;
+  const NormalIcon = icon;
+
   useEffect(() => {
     if (path === "/sign-out") {
       setActive(true);
@@ -20,7 +27,7 @@ const MenuItem = ({ label, icon, activeIcon, path, onClick }) => {
     }
     setActive(location.pathname === path);
   }, [location, path]);
-
+  console.log(ActiveIcon)
   return (
     <ListItem
       button
@@ -30,13 +37,10 @@ const MenuItem = ({ label, icon, activeIcon, path, onClick }) => {
       onClick={onClick}
     >
       <ListItemIcon>
-        <Icon>
-          <img
-            className={classes.menuItemIcon}
-            src={active ? activeIcon : icon}
-            alt={label}
-          />
-        </Icon>
+        {/* {active 
+          ? <ActiveIcon />
+          : <NormalIcon />
+      } */}
       </ListItemIcon>
       <ListItemText
         primary={label}

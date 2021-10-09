@@ -29,7 +29,8 @@ export const useStyles = makeStyles((theme) => ({
   },
   grid: {
     width: '100%',
-    margin: '0px'
+    margin: '0px',
+    // padding: '15px'
   },
   navigationLogo: {
     width: "50%",
@@ -92,13 +93,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   paperTypography: {
     fontSize: '1.2em',
-    fontWeight: '500'
+    fontWeight: '500',
+    paddingBottom: '1rem'
   },
-  paperWeather: {
-    backgroundColor: '#439FD9',
-    transition: '0.4 ease-out',
-  },
-  paperWeatherWarm: {
-    backgroundColor: '#D9601A',
-  }
 }));
