@@ -5,24 +5,24 @@ networks:
     external: true
 services:
   react-home-assistant:
-  container_name: react-home-assistant
-  image: app-prod
-  build:
-    context: .
-    target: production
+    container_name: react-home-assistant
+    image: app-prod
+    build:
+      context: .
+      target: production
 
-  volumes:
-    - '.:/app'
-    - '/app/node_modules'
-  ports:
-    - '1337:80'
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '1337:80'
 
-  networks:
-    - proxy
-  labels:
-    - traefik.enable=true
-    - traefik.http.routers.react.rule=Host(`home-automation.kanoa.be`)
-    - traefik.http.routers.react.entrypoints=https
-    - traefik.http.routers.react.tls=true
-    - traefik.http.services.react.loadbalancer.server.scheme=https
-    - traefik.http.services.react.loadbalancer.server.port=1337
+    networks:
+      - proxy
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.react.rule=Host(`home-automation.kanoa.be`)
+      - traefik.http.routers.react.entrypoints=https
+      - traefik.http.routers.react.tls=true
+      - traefik.http.services.react.loadbalancer.server.scheme=https
+      - traefik.http.services.react.loadbalancer.server.port=1337
