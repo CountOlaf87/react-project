@@ -7,23 +7,23 @@ services:
   react-home-assistant:
     container_name: react-home-assistant
     image: app-prod
-    build:
-      context: .
-      target: production
-
     volumes:
       - '.:/app'
       - '/app/node_modules'
     ports:
       - '1337:80'
-      - '1443:443'
-
     networks:
       - proxy
     labels:
-      - traefik.enable=true
-      - traefik.http.routers.react.rule=Host(`home-automation.kanoa.be`)
-      - traefik.http.routers.react.entrypoints=https
-      - traefik.http.routers.react.tls=true
-      - traefik.http.services.react.loadbalancer.server.scheme=https
-      - traefik.http.services.react.loadbalancer.server.port=1443
+      - "traefik.enable=true"
+      - "traefik.http.routers.react.entrypoints=http"
+      - "traefik.http.routers.react.rule=Host(`home-automation.kanoa.be`)"
+      - "traefik.http.middlewares.react-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.react.middlewares=react-https-redirect"
+      - "traefik.http.routers.react-secure.entrypoints=https"
+      - "traefik.http.routers.react-secure.rule=Host(`home-automation.kanoa.be`)"
+      - "traefik.http.routers.react-secure.tls=true"
+      - "traefik.http.routers.react-secure.tls.certresolver=http"
+      - "traefik.http.routers.react-secure.service=react"
+      - "traefik.http.services.react.loadbalancer.server.port=1337"
+      - "traefik.docker.network=proxy"
