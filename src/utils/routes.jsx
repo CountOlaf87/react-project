@@ -1,5 +1,3 @@
-
-
 import Dashboard from "../components/views/Dashboard";
 import Lights from "../components/views/Lights";
 import Home from "../components/views/Home";
@@ -27,13 +25,6 @@ const routes = [
     ActiveIcon: "DashboardIcon",
     component: Home,
   },
-  {
-    label: "Sign Out",
-    path: "/sign-out",
-    Icon: "ExitToAppIcon",
-    ActiveIcon: "ExitToAppIcon",
-  },
-
 ];
 
 export default routes;

@@ -13,6 +13,7 @@ function PersonHomeCard(props) {
   const entity_id = props.entity_id;
 
   const classes = useStyles();
+  const [error, setError] = useState(false);
 
   async function fetchEntity() {
     try {
@@ -20,14 +21,19 @@ function PersonHomeCard(props) {
       updatePerson(fetchedEntity.data);
       updateLoading(false);
     } catch (error) {
-      console.log(error.message);
+      setError(true);
     }
   }
 
   useEffect(() => {
-    updatePerson(() => fetchEntity(entity_id));
+    fetchEntity(entity_id);
   }, [entity_id])
 
+  if(error){
+    return <Typography variant='h2' className={classes.paperTypography}>
+      An error has occured
+    </Typography>
+  }
   return loading ? (
     <Typography variant='body1'>Loading entity {entity_id}</Typography>
   ) : (

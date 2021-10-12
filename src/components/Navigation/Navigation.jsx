@@ -14,11 +14,13 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import MenuIcon from "@material-ui/icons/Menu";
 import {
   AppBar,
+  Button,
   Toolbar,
   Typography,
   useMediaQuery,
   useTheme,
 } from "@material-ui/core";
+import { logout } from "../../utils/firebase";
 
 const Navigation = () => {
   const [open, setOpen] = useState(true);
@@ -31,9 +33,9 @@ const Navigation = () => {
   };
 
   const closeNavigation = () => {
-    if (matches) {
-      setOpen(false);
-    }
+    // if (matches) {
+    //   setOpen(false);
+    // }
   };
 
   return (
@@ -48,9 +50,9 @@ const Navigation = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography color="inherit" component="h1" variant="h6">
+          {/* <Typography color="inherit" component="h1" variant="h6">
             Quality
-          </Typography>
+          </Typography> */}
         </Toolbar>
       </AppBar>
       <Drawer
@@ -97,6 +99,8 @@ const Navigation = () => {
               </Fragment>
             );
           })}
+          <div className={classes.navigationSpacer}></div>
+          <Button variant="contained" onClick={() => { logout() }}>Log out</Button>
         </List>
       </Drawer>
     </div>

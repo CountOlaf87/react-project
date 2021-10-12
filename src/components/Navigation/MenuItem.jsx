@@ -27,7 +27,6 @@ const MenuItem = ({ label, icon, activeIcon, path, onClick }) => {
     }
     setActive(location.pathname === path);
   }, [location, path]);
-  console.log(ActiveIcon)
   return (
     <ListItem
       button

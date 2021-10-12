@@ -6,12 +6,15 @@ import lightEntities from '../../utils/ligtEntities';
 import { Grid } from '@material-ui/core';
 
 import { useStyles } from "../../utils/styles";
+import Navigation from '../Navigation/Navigation';
 
 function Lights() {
   const classes = useStyles();
 
   return (
-
+      <>
+        <Navigation />
+      
       <Grid container spacing={3} className={classes.grid}>
         {lightEntities.map((light, index) => {
           return(
@@ -21,6 +24,7 @@ function Lights() {
           )
         })}
       </Grid>
+    </>
   )
 }
 

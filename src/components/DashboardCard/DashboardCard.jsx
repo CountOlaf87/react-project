@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Paper, Typography, Icon, Switch } from '@material-ui/core';
 
-import { getRequest } from '../../utils/api';
+import { getRequest, handleError } from '../../utils/api';
 
 import { useStyles } from "../../utils/styles";
 
@@ -17,6 +17,7 @@ function DashboardCard(props) {
   const [entity, updateEntity] = useState(true);
   const [loading, updateLoading] = useState({});
   const [checked, setChecked] = useState(false);
+  const [errors, setErrors] = useState(false);
 
   const classes = useStyles();
 
@@ -25,23 +26,15 @@ function DashboardCard(props) {
       setChecked(true);
     }
   }
-  
-  // function getEntities() {
-  //   api.get(`/states/${entity_id}`)
-  //     .then((response) => {
-  //       updateEntity(response.data);
-  //       updateState(response.data);
-  //       updateLoading(false);
-  //     });
-  // };
 
   async function fetchEntity(){
     try{
       const fetchedEntity = await getRequest(`states/${entity_id}`);
       updateEntity(fetchedEntity.data);
+      updateState(fetchedEntity.data);
       updateLoading(false);
-    } catch (error){
-      console.log(error.message);
+    } catch (err){
+      setErrors(true);
     }
   }
 
@@ -57,6 +50,9 @@ function DashboardCard(props) {
     setInterval(() => fetchEntity(), 2500);
   }, [entity_id]);
 
+  if(errors){
+    return <Typography variant='body1'>An error has occured.</Typography>
+  }else{
   return loading ? (
   <Typography variant='body1'>Loading entity {entity_id}</Typography>
   ) : (
@@ -73,7 +69,8 @@ function DashboardCard(props) {
           />
     </Paper>
   </div>
-);
+    )
+  };
 };
 
 export default DashboardCard;
