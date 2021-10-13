@@ -53,5 +53,5 @@
   "devDependencies": {
     "http-proxy-middleware": "^2.0.1"
   },
-  "proxy": "http://10.10.2.5:8123"
+  "proxy": "http://home.kanoa.be"
 }
