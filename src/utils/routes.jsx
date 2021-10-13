@@ -6,15 +6,15 @@ const routes = [
   {
     label: "Dashboard",
     path: "/",
-    Icon: "DashboardOutlinedIcon",
-    ActiveIcon: "DashboardIcon",
+    icon: "DashboardOutlinedIcon",
+    activeIcon: "DashboardIcon",
     component: Dashboard,
   },
   {
     label: "Lights",
     path: "/lights",
-    Icon: "DashboardOutlinedIcon",
-    ActiveIcon: "DashboardIcon",
+    activeIcon: "EmojiObjectsIcon",
+    icon: "EmojiObjectsOutlinedIcon",
     component: Lights,
   },
 ];

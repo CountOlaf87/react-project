@@ -49,8 +49,11 @@ function DashboardCard(props) {
   }
 
   useEffect(() => {
-    setInterval(() => fetchEntity(), 1000);
-  }, [entity_id]);
+    const interval = setInterval(() => {
+      fetchEntity();
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   if(errors){
     return <Typography variant='body1'>An error has occured.</Typography>

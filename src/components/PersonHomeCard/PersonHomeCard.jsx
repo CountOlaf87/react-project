@@ -26,8 +26,11 @@ function PersonHomeCard(props) {
   }
 
   useEffect(() => {
-    fetchEntity(entity_id);
-  }, [entity_id])
+    const interval = setInterval(() => {
+      fetchEntity();
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   if(error){
     return <Typography variant='h2' className={classes.paperTypography}>

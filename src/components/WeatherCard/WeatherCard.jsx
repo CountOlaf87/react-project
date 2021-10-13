@@ -16,7 +16,7 @@ function WeatherCard() {
   const weatherApiUrl = FULL_API_URL;
 
   function getWeather(){
-    axios.get("https://api.openweathermap.org/data/2.5/weather?q=Brussels&appid=2cd3d64cd2c2c89d9a3d8396fb9f658d")
+    axios.get("https://api.openweathermap.org/data/2.5/weather?q=Brussels&appid=2cd3d64cd2c2c89d9a3d8396fb9f658d&units=metric")
     // .then(res => res.json())
     .then ((result) => {
       setWeather(result.data);

@@ -7,7 +7,10 @@ import { logout } from "../../utils/firebase";
 
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import DashboardOutlinedIcon from '@material-ui/icons/DashboardOutlined';
+import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
+import EmojiObjectsOutlinedIcon from '@material-ui/icons/EmojiObjectsOutlined';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+
 
 // internal
 import { useStyles } from "../../utils/styles";
@@ -16,10 +19,11 @@ const MenuItem = ({ label, icon, activeIcon, path, onClick }) => {
   const [active, setActive] = useState(false);
   const location = useLocation();
   const classes = useStyles();
+  const icons = { DashboardIcon, DashboardOutlinedIcon, ExitToAppIcon, EmojiObjectsIcon, EmojiObjectsOutlinedIcon }
 
-  const ActiveIcon = activeIcon;
-  const NormalIcon = icon;
-
+  const ActiveIcon = icons[activeIcon];
+  const NormalIcon = icons[icon];
+  console.log(ActiveIcon)
   useEffect(() => {
     if (path === "/sign-out") {
       setActive(true);
@@ -36,10 +40,10 @@ const MenuItem = ({ label, icon, activeIcon, path, onClick }) => {
       onClick={onClick}
     >
       <ListItemIcon>
-        {/* {active 
+        {active 
           ? <ActiveIcon />
           : <NormalIcon />
-      } */}
+        }
       </ListItemIcon>
       <ListItemText
         primary={label}
