@@ -1,6 +1,5 @@
 import Dashboard from "../components/views/Dashboard";
 import Lights from "../components/views/Lights";
-import Home from "../components/views/Home";
 
 
 const routes = [
@@ -17,13 +16,6 @@ const routes = [
     Icon: "DashboardOutlinedIcon",
     ActiveIcon: "DashboardIcon",
     component: Lights,
-  },
-  {
-    label: "Home",
-    path: "/home",
-    Icon: "DashboardOutlinedIcon",
-    ActiveIcon: "DashboardIcon",
-    component: Home,
   },
 ];
 

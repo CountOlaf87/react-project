@@ -24,6 +24,8 @@ function DashboardCard(props) {
   function updateState(ent){
     if(ent.state === 'on'){
       setChecked(true);
+    }else{
+      setChecked(false);
     }
   }
 
@@ -47,7 +49,7 @@ function DashboardCard(props) {
   }
 
   useEffect(() => {
-    setInterval(() => fetchEntity(), 2500);
+    setInterval(() => fetchEntity(), 1000);
   }, [entity_id]);
 
   if(errors){
@@ -56,9 +58,9 @@ function DashboardCard(props) {
   return loading ? (
   <Typography variant='body1'>Loading entity {entity_id}</Typography>
   ) : (
-  <div>
+  <>
     <Paper elevation={3} className={classes.paper}>
-      <Typography variant='h2' className={classes.paperTypography}>{entity.attributes.friendly_name}</Typography>
+      <Typography variant='h2' className={classes.paperTypography}>{props.entity}</Typography>
       <Icon>{entity_id.icon}</Icon>
       <Typography variant='body1'>{entity.state}</Typography>
           <Switch
@@ -68,7 +70,7 @@ function DashboardCard(props) {
             inputProps={{ 'aria-label': 'secondary checkbox' }}
           />
     </Paper>
-  </div>
+  </>
     )
   };
 };

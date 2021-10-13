@@ -12,6 +12,8 @@ import List from "@material-ui/core/List";
 import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import MenuIcon from "@material-ui/icons/Menu";
+import Logo from "../../assets/Logo.png";
+
 import {
   AppBar,
   Button,
@@ -75,13 +77,13 @@ const Navigation = () => {
             {open ? <ChevronLeftIcon /> : <MenuIcon />}
           </IconButton>
         </div>
-        {/* <div className={classes.navigationLogoContainer}>
+        <div className={classes.navigationLogoContainer}>
           <img
             className={classes.navigationLogo}
-            src={open ? Logo1 : Logo2}
-            alt="Quality Logo"
+            src={open ? Logo : Logo}
+            alt="Logo"
           />
-        </div> */}
+        </div>
         <List className={classes.navigationList}>
           {routes.map((route, index) => {
             return (

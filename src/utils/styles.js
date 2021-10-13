@@ -33,7 +33,7 @@ export const useStyles = makeStyles((theme) => ({
     // padding: '15px'
   },
   navigationLogo: {
-    width: "50%",
+    width: "20%",
     cursor: "pointer",
   },
   navigationLogoContainer: {
