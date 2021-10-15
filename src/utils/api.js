@@ -4,7 +4,7 @@ const axiosClient = axios.create();
 
 const token = process.env.REACT_APP_HASS_BEARER
 
-axiosClient.defaults.baseURL = '/api/';
+axiosClient.defaults.baseURL = process.env.REACT_APP_HASS_URL;
 
 axiosClient.defaults.headers = {
   'Authorization': `${token}`,

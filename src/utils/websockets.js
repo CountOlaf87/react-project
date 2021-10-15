@@ -10,7 +10,6 @@ const connection = (async () => {
   );
   return await createConnection({ auth });
 
-  // subscribeEntities(connection, (entities) => console.log(entities));
 })();
 
 export default connection;
