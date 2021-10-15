@@ -1,7 +1,9 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = makeStyles((theme) => {
+  console.log(theme)
+  return {
   appRoot: {
     display: "flex",
   },
@@ -101,4 +103,5 @@ export const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     paddingTop: theme.spacing(2),
   },
-}));
+  }
+})
