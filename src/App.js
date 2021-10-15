@@ -9,7 +9,7 @@ import routes from './utils/routes';
 
 
 // Styles
-import { makeStyles } from '@mui/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { logout } from './utils/firebase';
 
 const useStyles = makeStyles({
