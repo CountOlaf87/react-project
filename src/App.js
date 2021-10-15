@@ -10,7 +10,10 @@ import routes from './utils/routes';
 
 // Styles
 import { makeStyles } from '@material-ui/core/styles';
+import { StylesProvider } from '@material-ui/core/styles';
+
 import { logout } from './utils/firebase';
+
 
 const useStyles = makeStyles({
   container: {
@@ -21,25 +24,27 @@ const useStyles = makeStyles({
 function App() {
   const classes = useStyles();
   return (
-    <div className={classes.container}>
-      <AuthProvider>
-        <Router>
-          {/* <Navigation /> */}
-          <Switch>
-            {routes.map((route, index) => {
-              if (route.path === "/sign-out") { 
-                logout();
-                <Route exact path="/login" component={Login} />
-              }
-              return(
-                <PrivateRoute exact key={index} path={route.path} component={route.component}/>
-              )
-            })}
-            <Route exact path="/login" component={Login} />
-          </Switch>
-        </Router>
-      </AuthProvider > 
-    </div>
+    <StylesProvider injectFirst>
+      <div className={classes.container}>
+        <AuthProvider>
+          <Router>
+            {/* <Navigation /> */}
+            <Switch>
+              {routes.map((route, index) => {
+                if (route.path === "/sign-out") { 
+                  logout();
+                  <Route exact path="/login" component={Login} />
+                }
+                return(
+                  <PrivateRoute exact key={index} path={route.path} component={route.component}/>
+                )
+              })}
+              <Route exact path="/login" component={Login} />
+            </Switch>
+          </Router>
+        </AuthProvider > 
+      </div>
+    </StylesProvider>
   );
 }
 
