@@ -7,6 +7,8 @@ services:
   react-home-assistant:
     container_name: react-home-assistant
     image: app-prod
+    ports:
+      - "1337:80"
     volumes:
       - '.:/app'
       - '/app/node_modules'
