@@ -105,4 +105,4 @@ export const useStyles = makeStyles((theme) => {
     paddingTop: theme.spacing(2),
   },
   }
-})
+}, { index: 1 })
