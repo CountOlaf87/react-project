@@ -8,6 +8,7 @@ export const useStyles = makeStyles((theme) => {
     display: "flex",
   },
   appBar: {
+    display: "none",
     background: "#6EC177",
     [theme.breakpoints.up("sm")]: {
       display: "none",

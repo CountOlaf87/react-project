@@ -12,7 +12,6 @@ services:
       - '/app/node_modules'
     ports:
       - '1337:80'
-      - '1443:443'
     networks:
       - proxy
     labels:
@@ -26,5 +25,5 @@ services:
       - "traefik.http.routers.react-secure.tls=true"
       - "traefik.http.routers.react-secure.tls.certresolver=http"
       - "traefik.http.routers.react-secure.service=react"
-      - "traefik.http.services.react.loadbalancer.server.port=1337"
+      - "traefik.http.services.react.loadbalancer.server.port=80"
       - "traefik.docker.network=proxy"
