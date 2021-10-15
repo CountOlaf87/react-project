@@ -90,10 +90,15 @@ export const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
     whiteSpace: 'nowrap',
     marginBottom: theme.spacing(1),
+    minHeight: theme.spacing(6),
   },
   paperTypography: {
     fontSize: '1.2em',
     fontWeight: '500',
     paddingBottom: '1rem'
+  },
+  loading: {
+    textAlign: 'center',
+    paddingTop: theme.spacing(2),
   },
 }));

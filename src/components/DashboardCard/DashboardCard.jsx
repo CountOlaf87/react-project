@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Paper, Typography, Icon, Switch } from '@material-ui/core';
 
-import { getRequest, handleError } from '../../utils/api';
+import { getRequest } from '../../utils/api';
 
 import { useStyles } from "../../utils/styles";
 
-import {
-  callService, subscribeEntities
-} from "home-assistant-js-websocket";
+import { callService } from "home-assistant-js-websocket";
 
 import connection from '../../utils/websockets';
+import LoadingComponent from '../LoadingComponent/LoadingComponent';
 
 function DashboardCard(props) {
   const entity_id = props.entity_id;
@@ -59,7 +58,7 @@ function DashboardCard(props) {
     return <Typography variant='body1'>An error has occured.</Typography>
   }else{
   return loading ? (
-  <Typography variant='body1'>Loading entity {entity_id}</Typography>
+  <LoadingComponent />
   ) : (
   <>
     <Paper elevation={3} className={classes.paper}>

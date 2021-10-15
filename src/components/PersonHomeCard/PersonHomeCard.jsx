@@ -5,6 +5,7 @@ import { Paper, Typography } from '@material-ui/core';
 import { getRequest } from '../../utils/api';
 
 import { useStyles } from "../../utils/styles";
+import LoadingComponent from '../LoadingComponent/LoadingComponent';
 
 function PersonHomeCard(props) {
   const [person, updatePerson] = useState({});
@@ -32,25 +33,24 @@ function PersonHomeCard(props) {
     return () => clearInterval(interval);
   }, []);
 
-  if(error){
-    return <Typography variant='h2' className={classes.paperTypography}>
-      An error has occured
-    </Typography>
+  if (error) {
+    return <Typography variant='body1'>An error has occured.</Typography>
+  } else {
+    return loading ? (
+      <LoadingComponent />
+    ) : (
+      <div>
+        <Paper elevation={3} className={classes.paper}>
+          <Typography variant='h2' className={classes.paperTypography}>
+            Olaf is
+          </Typography>
+          <Typography variant='h2' className={classes.paperTypography}>
+            {person.state === 'home' ? "Home" : "Not home"}
+          </Typography>
+        </Paper>
+      </div>
+    )
   }
-  return loading ? (
-    <Typography variant='body1'>Loading entity {entity_id}</Typography>
-  ) : (
-    <div>
-      <Paper elevation={3} className={classes.paper}>
-        <Typography variant='h2' className={classes.paperTypography}>
-          Olaf is
-        </Typography>
-        <Typography variant='h2' className={classes.paperTypography}>
-          {person.state === 'home' ? "Home" : "Not home"}
-        </Typography>
-      </Paper>
-    </div>
-  )
 }
 
 export default PersonHomeCard

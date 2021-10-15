@@ -18,7 +18,6 @@ import {
   AppBar,
   Button,
   Toolbar,
-  Typography,
   useMediaQuery,
   useTheme,
 } from "@material-ui/core";

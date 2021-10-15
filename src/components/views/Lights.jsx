@@ -14,7 +14,7 @@ function Lights() {
   return (
       <>
       <Navigation />
-      <Grid container rowSpacing={1} spacing={3} className={classes.grid}>
+      <Grid container spacing={3} className={classes.grid}>
         {lightEntities.map((light, index) => {
           return(
             <Grid item xs={light.xsSizing} key={index}>
