@@ -22,6 +22,6 @@ services:
       - "traefik.http.routers.react-secure.rule=Host(`home-automation.kanoa.be`)"
       - "traefik.http.routers.react-secure.tls=true"
       - "traefik.http.routers.react-secure.tls.certresolver=http"
-      - "traefik.http.routers.react-secure.service=react"
+      - "traefik.http.routers.react-secure.service=react-home-assistant"
       - "traefik.http.services.react.loadbalancer.server.port=80"
       - "traefik.docker.network=proxy"
