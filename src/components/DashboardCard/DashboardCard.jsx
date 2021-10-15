@@ -20,6 +20,7 @@ function DashboardCard(props) {
 
   const classes = useStyles();
 
+  console.log(checked)
   function updateState(ent){
     if(ent.state === 'on'){
       setChecked(true);

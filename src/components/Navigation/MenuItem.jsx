@@ -22,7 +22,6 @@ const MenuItem = ({ label, icon, activeIcon, path, onClick }) => {
 
   const ActiveIcon = icons[activeIcon];
   const NormalIcon = icons[icon];
-  console.log(ActiveIcon)
   useEffect(() => {
     if (path === "/sign-out") {
       setActive(true);
