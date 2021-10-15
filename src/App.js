@@ -15,8 +15,8 @@ import { logout } from './utils/firebase';
 const useStyles = makeStyles({
   container: {
     display: "flex",
-  }
-});
+  },
+}, {index: 1});
 
 function App() {
   const classes = useStyles();
